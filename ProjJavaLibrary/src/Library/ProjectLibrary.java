@@ -2,6 +2,8 @@ package Library;
 
 import java.util.Scanner;
 
+import account.Account;
+
 public class ProjectLibrary {
 	public static void clearScreen() {
 		System.out.print("\033[H\033[2J");

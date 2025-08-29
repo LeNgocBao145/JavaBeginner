@@ -1,5 +1,7 @@
 package Library;
 
+import ticket.Ticket;
+
 public class Statistic {
 
 //	void statisticBookQuantity()

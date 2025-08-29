@@ -13,7 +13,7 @@ public class Test {
 		System.out.println(Arrays.toString(b));
 		
 		String s2 = "Xin chào, mình là Peter. Mình là lập trinh viên!";
-		String[] c = s2.split("\\.|\\,");
+		String[] c = s2.split("\\.|,");
 		System.out.println(Arrays.toString(c));
 	}
 }

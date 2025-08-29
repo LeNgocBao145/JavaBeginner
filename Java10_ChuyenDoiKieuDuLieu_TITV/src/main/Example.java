@@ -18,7 +18,10 @@ public class Example {
 		// Ép kiểu tường minh
 		float e = 3.5f;
 		float f = 9.5f;
-
+		
+		System.out.println("e = " + e);
+		System.out.println("f = " + f);
+		
 		int g = (int) e;
 		int h = (int) f;
 

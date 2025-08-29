@@ -2,6 +2,10 @@ package Library;
 
 import java.util.Random;
 
+import book.Book;
+import reader.Reader;
+import ticket.Ticket;
+
 public class Function {
 	int geneId() {
 		Random rand = new Random();

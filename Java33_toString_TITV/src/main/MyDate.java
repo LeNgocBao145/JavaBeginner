@@ -12,9 +12,21 @@ public class MyDate {
 
 	public MyDate(int day, int month, int year) {
 		// super();
-		this.day = day;
-		this.month = month;
-		this.year = year;
+		if (day >= 1 && day <= 31) {
+			this.day = day;
+		} else {
+			this.day = 1;
+		}
+		if (month >= 1 && month <= 12) {
+			this.month = month;
+		} else {
+			this.month = 1;
+		}
+		if (year >= 1) {
+			this.year = year;
+		}else {
+			this.year = 1;
+		}
 	}
 
 	public int getDay() {
@@ -22,6 +34,7 @@ public class MyDate {
 	}
 
 	public void setDay(int day) {
+		if (day >= 1 && day <= 31) 
 		this.day = day;
 	}
 
@@ -30,6 +43,7 @@ public class MyDate {
 	}
 
 	public void setMonth(int month) {
+		if (month >= 1 && month <= 12)
 		this.month = month;
 	}
 
@@ -38,7 +52,14 @@ public class MyDate {
 	}
 
 	public void setYear(int year) {
+		if (year >= 1)
 		this.year = year;
 	}
 
+	@Override
+	public String toString() {
+		return day + "/" + month + "/" + year;
+	}
+	
+	
 }

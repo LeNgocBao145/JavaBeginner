@@ -18,6 +18,7 @@ public class Example {
 		for (int i = 0; i < width; i++) {
 			System.out.println("Vị trí " + i + " là: " + s.charAt(i));
 		}
+		
 
 		// Function getChars(vị trí bắt đầu, vị trí kết thúc, mảng lưu chuỗi kí tự, vị
 		// trí bắt đầu lưu mảng)

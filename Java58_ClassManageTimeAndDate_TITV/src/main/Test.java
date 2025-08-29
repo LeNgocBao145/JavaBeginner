@@ -5,6 +5,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
 public class Test {
 	public static void main(String[] args) {
@@ -52,5 +54,10 @@ public class Test {
 		// y - năm; M - tháng; d - ngày
 		df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		System.out.println(df.format(d));
+		
+		//DateTimeFormatter
+		LocalDateTime ldt = LocalDateTime.now();
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		System.out.println(ldt.format(dtf));
 	}
 }
