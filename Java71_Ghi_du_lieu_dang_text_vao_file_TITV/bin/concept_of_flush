@@ -1,0 +1,22 @@
+1. Khái niệm Flush
+
+Trong Java (và hầu hết ngôn ngữ khác), khi bạn ghi dữ liệu ra file hoặc console, 
+dữ liệu không được ghi trực tiếp ngay lập tức.
+
+Thay vào đó, nó đi qua một buffer (bộ đệm). Buffer là một vùng nhớ tạm, giúp giảm số 
+lần truy cập IO (vốn rất tốn thời gian).
+
+👉 flush có nghĩa là ép toàn bộ dữ liệu đang nằm trong buffer ghi ra đích thật sự 
+ngay lập tức (file, console, socket…).
+
+2. Tại sao cần flush
+
+Nếu buffer chưa đầy, dữ liệu có thể nằm đó mà chưa được ghi.
+
+Nếu chương trình kết thúc mà bạn chưa flush, có thể mất dữ liệu vì chưa kịp ghi ra.
+
+Vì vậy:
+
+close() luôn bao gồm flush().
+
+Nếu muốn chắc chắn ghi ngay (ví dụ ghi log ra console), bạn gọi flush() thủ công.
