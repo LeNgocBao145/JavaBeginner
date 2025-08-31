@@ -1,0 +1,4 @@
+Xin chào Bảo
+Dữ liệu: 3.14 là số PI
+Student [id=010, name=Nguyen Van A]
+LO
