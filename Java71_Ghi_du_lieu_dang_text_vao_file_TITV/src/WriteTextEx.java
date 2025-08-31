@@ -39,6 +39,8 @@ public class WriteTextEx {
 //			của PrintWriter sẽ tự động sử dụng kết quả trả về của toString() để ghi.
 			Student st = new Student("010", "Nguyen Van A");
 			pw.print(st);
+			String dumb = "\nLOL";
+			pw.append(dumb, 0, 3);
 			pw.close();
 		} catch (FileNotFoundException | UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
