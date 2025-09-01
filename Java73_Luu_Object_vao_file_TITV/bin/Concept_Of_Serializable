@@ -1,0 +1,70 @@
+1. Serializable là gì?
+
+Serializable là một marker interface (interface rỗng, không có method nào) nằm 
+trong package java.io.
+
+Khi một class implements Serializable, nó báo cho Java Serialization mechanism 
+biết rằng object của class đó có thể được chuyển thành chuỗi byte để:
+
+Lưu xuống file
+
+Truyền qua network
+
+Lưu vào database dạng blob
+
+Sau đó có thể deserialize: tái tạo lại object từ chuỗi byte đó.
+
+import java.io.*;
+
+class Student implements Serializable {
+    private String name;
+    private int age;
+
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+
+Ở đây Student không có thêm code gì cả, chỉ cần implements Serializable là đã có 
+thể serialize.
+
+2. Tại sao cần Serializable?
+
+Java không cho phép serialize object tùy tiện, vì:
+
+Có class chứa tài nguyên không thể/không nên serialize (ví dụ: Thread, Socket, 
+FileInputStream).
+
+Do đó, bắt buộc developer phải chỉ định rõ class nào được serialize.
+
+3. Cách dùng thực tế
+Serialize object (ghi ra file):
+Student s = new Student("Bao", 21);
+
+ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("student.dat"));
+oos.writeObject(s);
+oos.close();
+
+Deserialize object (đọc lại file):
+ObjectInputStream ois = new ObjectInputStream(new FileInputStream("student.dat"));
+Student s2 = (Student) ois.readObject();
+ois.close();
+
+System.out.println(s2);
+
+4. Lưu ý quan trọng
+
+serialVersionUID:
+Để đảm bảo version tương thích khi serialize/deserialize object giữa các JVM khác nhau. 
+Nếu không khai báo, JVM sẽ tự sinh, nhưng dễ lỗi khi class thay đổi.
+
+private static final long serialVersionUID = 1L;
+
+
+Transient field:
+Nếu có thuộc tính bạn không muốn serialize (vd: password, dữ liệu nhạy cảm, hoặc 
+object không thể serialize), khai báo transient.
+
+private transient String password;
